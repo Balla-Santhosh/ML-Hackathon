@@ -1,0 +1,48 @@
+{
+  "model": "LightGBM",
+  "params": {
+    "n_estimators": 750,
+    "learning_rate": 0.05660002616802761,
+    "num_leaves": 145,
+    "min_child_samples": 10,
+    "subsample": 0.9264343092411899,
+    "colsample_bytree": 0.7354949371117779,
+    "reg_lambda": 0.008034660933963322,
+    "reg_alpha": 0.017888304100890078
+  },
+  "features": [
+    "dist",
+    "dist_rank",
+    "dist_minus_min",
+    "dist_ratio",
+    "n_cands",
+    "gap12",
+    "head_cos",
+    "head_cos_wide",
+    "speed",
+    "turn_rate",
+    "arc_len",
+    "t_along",
+    "at_endpoint",
+    "ctx_mean",
+    "ctx_max",
+    "ctx_wide_mean",
+    "ctx_minus_min",
+    "ctx_rank",
+    "out_deg_to",
+    "in_deg_from",
+    "twin_in_cands",
+    "dt_prev"
+  ],
+  "label_max_align_m": 30.0,
+  "train_stride": 2,
+  "seed": 42,
+  "student_test_metrics": {
+    "top1_acc": 0.9126826722338205,
+    "macro_f1": 0.9495620817117907,
+    "macro_f1_thr05": 0.9449791030216345,
+    "precision_pos": 0.9126826722338205,
+    "recall_pos": 0.9159813524697501,
+    "log_loss": 0.07718591573582739
+  }
+}

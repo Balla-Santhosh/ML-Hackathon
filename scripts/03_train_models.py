@@ -28,7 +28,7 @@ from pathsnap.config import CACHE_DIR, FIG_DIR, RESULTS_DIR, SEED, STUDENT_TEST_
 from pathsnap.dataset import FEATURES, load_student_test, load_train  # noqa: E402
 from pathsnap.evaluation import TripContext, decode_trip  # noqa: E402
 from pathsnap.metrics import argmax_decision, candidate_metrics  # noqa: E402
-from pathsnap.models import MODEL_ZOO  # noqa: E402
+from pathsnap.models import MODEL_ZOO, TorchMLP  # noqa: E402
 
 
 def fit_model(name, X, y, X_val=None, y_val=None):
@@ -38,7 +38,11 @@ def fit_model(name, X, y, X_val=None, y_val=None):
         idx = np.random.default_rng(SEED).choice(len(X), max_rows, replace=False)
         X, y = X[idx], y[idx]
     t0 = time.time()
-    if name == "LightGBM" and X_val is not None:
+    if isinstance(m, TorchMLP):
+        m.fit(X, y, X_val, y_val)
+    elif name in ("XGBoost",) and X_val is not None:
+        m.fit(X, y, eval_set=[(X, y), (X_val, y_val)], verbose=False)
+    elif name == "LightGBM" and X_val is not None:
         m.fit(X, y, eval_set=[(X, y), (X_val, y_val)], eval_names=["train", "val"])
     else:
         m.fit(X, y)
@@ -46,7 +50,11 @@ def fit_model(name, X, y, X_val=None, y_val=None):
 
 
 def history_of(name, m):
-    """Round-wise train/validation loss (only boosting produces a training history)."""
+    if isinstance(m, TorchMLP):
+        return m.history
+    if name == "XGBoost" and hasattr(m, "evals_result"):
+        r = m.evals_result()
+        return {"train_loss": r["validation_0"]["logloss"], "val_loss": r["validation_1"]["logloss"]}
     if name == "LightGBM" and getattr(m, "evals_result_", None):
         r = m.evals_result_
         return {"train_loss": r["train"]["binary_logloss"], "val_loss": r["val"]["binary_logloss"]}

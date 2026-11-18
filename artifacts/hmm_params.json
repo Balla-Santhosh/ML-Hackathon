@@ -1,0 +1,7 @@
+{
+  "beta": 5.0,
+  "alpha": 2.0,
+  "cutoff_factor": 3.0,
+  "cutoff_min": 150.0,
+  "prob_floor": 0.0001
+}

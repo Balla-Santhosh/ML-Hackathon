@@ -1,0 +1,38 @@
+{
+  "model": "LightGBM",
+  "n_trials": 30,
+  "n_complete": 22,
+  "n_pruned": 8,
+  "search_secs": 1830.8531937599182,
+  "objective": "mean 5-fold GroupKFold macro-F1 (top-1 decision) on training trips",
+  "best_params": {
+    "n_estimators": 750,
+    "learning_rate": 0.05660002616802761,
+    "num_leaves": 145,
+    "min_child_samples": 10,
+    "subsample": 0.9264343092411899,
+    "colsample_bytree": 0.7354949371117779,
+    "reg_lambda": 0.008034660933963322,
+    "reg_alpha": 0.017888304100890078
+  },
+  "untuned": {
+    "cv_macro_f1": 0.9509268928807668,
+    "cv_top1": 0.9150926181195663,
+    "cv_log_loss": 0.07116118210342907,
+    "st_top1": 0.9105949895615867,
+    "st_macro_f1": 0.9483307623761006,
+    "st_log_loss": 0.0746278487192851,
+    "inference_ms_per_1000_fixes": 32.417771711727774,
+    "fit_secs": 8.315704345703125
+  },
+  "tuned": {
+    "cv_macro_f1": 0.9517480938065808,
+    "cv_top1": 0.9164682914587358,
+    "cv_log_loss": 0.07733647553937746,
+    "st_top1": 0.9126826722338205,
+    "st_macro_f1": 0.9495620817117907,
+    "st_log_loss": 0.07718591573582739,
+    "inference_ms_per_1000_fixes": 56.508948758151185,
+    "fit_secs": 19.48734998703003
+  }
+}

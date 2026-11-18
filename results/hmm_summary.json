@@ -1,0 +1,43 @@
+{
+  "clf_top1_weighted": 0.9126826722338205,
+  "hmm_top1_weighted": 0.9289144050104383,
+  "clf_top1_mean": 0.9245463189559434,
+  "clf_continuity_mean": 0.9810246783304357,
+  "clf_route_precision_mean": 0.9246468528798116,
+  "clf_route_recall_mean": 0.8994764473080789,
+  "clf_route_precision_len_mean": 0.930822874406086,
+  "clf_route_recall_len_mean": 0.9782412509739213,
+  "clf_route_mismatch_fraction_mean": 0.09706321542554983,
+  "clf_n_pred_segments_mean": 420.8,
+  "hmm_secs_mean": 0.41940946578979493,
+  "hmm_breaks_mean": 0.8,
+  "hmm_top1_mean": 0.9370458582230207,
+  "hmm_continuity_mean": 0.9984241591750862,
+  "hmm_route_precision_mean": 0.9589885099016211,
+  "hmm_route_recall_mean": 0.9042591297022616,
+  "hmm_route_precision_len_mean": 0.9663779860454191,
+  "hmm_route_recall_len_mean": 0.9800319525937441,
+  "hmm_route_mismatch_fraction_mean": 0.05482722699108235,
+  "hmm_n_pred_segments_mean": 336.5,
+  "params": {
+    "beta": 5.0,
+    "alpha": 2.0,
+    "cutoff_factor": 3.0,
+    "cutoff_min": 150.0,
+    "prob_floor": 0.0001
+  },
+  "tuning_trips": [
+    "00000006",
+    "00000008",
+    "00000010",
+    "00000020",
+    "00000038",
+    "00000050",
+    "00000058",
+    "00000066",
+    "00000068",
+    "00000080",
+    "00000090",
+    "00000098"
+  ]
+}

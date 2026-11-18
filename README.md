@@ -12,6 +12,9 @@ Noisy GPS tracks are matched to a road network in two stages:
 The system is deployed on two laptops: a **FastAPI** backend (model, HMM, road network, server-side scoring)
 and a **Streamlit** evaluator UI.
 
+> **How to run:** see [RUN_GUIDE.md](RUN_GUIDE.md) for setup, running the API + UI on one or two laptops,
+> reproducing every experiment, configuration and troubleshooting.
+
 ## Results (student-testing partition, 10 trips, 19,160 fixes)
 
 | Stage | Top-1 accuracy | Route continuity | Route mismatch |

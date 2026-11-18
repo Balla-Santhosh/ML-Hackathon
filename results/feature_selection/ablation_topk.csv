@@ -1,0 +1,7 @@
+k,features,cv_top1,cv_macro_f1,cv_macro_f1_std,cv_log_loss
+3,"head_cos_wide,ctx_minus_min,dist",0.866630359366987,0.9221143332455392,0.008820762611966265,0.12018443877032703
+5,"head_cos_wide,ctx_minus_min,dist,head_cos,t_along",0.9127454429178723,0.9493030990222215,0.011814153340035142,0.08011758093491564
+8,"head_cos_wide,ctx_minus_min,dist,head_cos,t_along,at_endpoint,out_deg_to,twin_in_cands",0.9133103732936035,0.949645015605381,0.011142950035512198,0.07676612696915205
+12,"head_cos_wide,ctx_minus_min,dist,head_cos,t_along,at_endpoint,out_deg_to,twin_in_cands,ctx_wide_mean,speed,gap12,ctx_max",0.9179037710808962,0.952357260563667,0.012235054987675239,0.07176933065534859
+16,"head_cos_wide,ctx_minus_min,dist,head_cos,t_along,at_endpoint,out_deg_to,twin_in_cands,ctx_wide_mean,speed,gap12,ctx_max,dist_ratio,ctx_rank,in_deg_from,dist_minus_min",0.9190681964637456,0.9530472007490918,0.013367436854682498,0.06833853262187058
+22,"head_cos_wide,ctx_minus_min,dist,head_cos,t_along,at_endpoint,out_deg_to,twin_in_cands,ctx_wide_mean,speed,gap12,ctx_max,dist_ratio,ctx_rank,in_deg_from,dist_minus_min,n_cands,turn_rate,dt_prev,arc_len,ctx_mean,dist_rank",0.9196537396855773,0.9533789756141805,0.013218884970321549,0.06826076285254976

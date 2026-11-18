@@ -1,4 +1,4 @@
-"""Train and compare candidate classifiers (Phase 1: two baselines).
+"""Train and compare candidate classifiers.
 
 Protocol
   * training data   : 80 training trips, fixes with reliable labels, every 2nd fix
@@ -38,13 +38,19 @@ def fit_model(name, X, y, X_val=None, y_val=None):
         idx = np.random.default_rng(SEED).choice(len(X), max_rows, replace=False)
         X, y = X[idx], y[idx]
     t0 = time.time()
-    m.fit(X, y)
+    if name == "LightGBM" and X_val is not None:
+        m.fit(X, y, eval_set=[(X, y), (X_val, y_val)], eval_names=["train", "val"])
+    else:
+        m.fit(X, y)
     return m, time.time() - t0
 
 
 def history_of(name, m):
-    """Epoch/round-wise loss history (none of the Phase-1 baselines produce one)."""
-    return getattr(m, "history", None)
+    """Round-wise train/validation loss (only boosting produces a training history)."""
+    if name == "LightGBM" and getattr(m, "evals_result_", None):
+        r = m.evals_result_
+        return {"train_loss": r["train"]["binary_logloss"], "val_loss": r["val"]["binary_logloss"]}
+    return None
 
 
 def main(only=None):

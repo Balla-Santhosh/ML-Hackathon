@@ -1,0 +1,31 @@
+highly correlated pairs (|rho|>=0.9): [('dist', 'dist_minus_min', np.float64(0.933)), ('dist_minus_min', 'dist_ratio', np.float64(0.927)), ('dist_minus_min', 'ctx_minus_min', np.float64(0.94)), ('ctx_mean', 'ctx_max', np.float64(0.932)), ('ctx_max', 'ctx_wide_mean', np.float64(0.926))]
+permutation importance 18s
+                mutual_info  perm_importance_logloss  perm_std  lgbm_gain_share
+head_cos_wide        0.1157                   0.1954    0.0001           0.2291
+ctx_minus_min        0.1813                   0.1011    0.0002           0.1724
+dist                 0.1194                   0.0485    0.0010           0.0063
+head_cos             0.0953                   0.0210    0.0001           0.0917
+t_along              0.1343                   0.0149    0.0001           0.0129
+at_endpoint          0.1542                   0.0147    0.0001           0.0235
+out_deg_to           0.0106                   0.0145    0.0002           0.0045
+twin_in_cands        0.0247                   0.0142    0.0000           0.0046
+ctx_wide_mean        0.0474                   0.0131    0.0005           0.0115
+speed                0.0000                   0.0103    0.0001           0.0188
+gap12                0.0000                   0.0038    0.0006           0.0070
+ctx_max              0.0840                   0.0036    0.0001           0.0046
+dist_ratio           0.1763                   0.0031    0.0001           0.3116
+ctx_rank             0.1720                   0.0028    0.0002           0.0264
+in_deg_from          0.0097                   0.0027    0.0003           0.0062
+dist_minus_min       0.1827                   0.0025    0.0004           0.0124
+n_cands              0.0385                   0.0012    0.0007           0.0032
+turn_rate            0.0000                   0.0008    0.0004           0.0039
+dt_prev              0.0022                   0.0000    0.0006           0.0006
+arc_len              0.0654                  -0.0001    0.0009           0.0252
+ctx_mean             0.1074                  -0.0002    0.0000           0.0067
+dist_rank            0.1746                  -0.0007    0.0001           0.0167
+3 0.8666 0.9221 0.1202
+5 0.9127 0.9493 0.0801
+8 0.9133 0.9496 0.0768
+12 0.9179 0.9524 0.0718
+16 0.9191 0.953 0.0683
+22 0.9197 0.9534 0.0683

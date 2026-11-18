@@ -91,16 +91,18 @@ Random seed: 42 everywhere (`pathsnap/config.py`).
 
 ## Deployment (two laptops)
 
-**Laptop 1 – API** (put the 10 evaluation trips in a folder, one sub-folder per trip, same layout as `student_test`):
+**Laptop 1 – API.** The 10 reserved evaluation trips live in `../evaluator_test/evaluator_test/<trip_id>/`
+(same layout as `student_test`). If that folder exists next to the repo the API serves it automatically:
 
 ```bash
-set PATHSNAP_EVAL_DIR=D:\path\to\evaluator_test
 uvicorn api.main:app --host 0.0.0.0 --port 8000
 ```
 
-(PowerShell: `$env:PATHSNAP_EVAL_DIR="D:\path\to\evaluator_test"`.) Without the variable the API serves the
-student-testing trips. Every request and its accuracy are logged in this terminal. Allow port 8000 through the
-Windows firewall and note the laptop's IP (`ipconfig`).
+To use another location, set `PATHSNAP_EVAL_DIR` first (cmd: `set PATHSNAP_EVAL_DIR=D:\path\to\evaluator_test\evaluator_test`,
+PowerShell: `$env:PATHSNAP_EVAL_DIR="D:\path\to\evaluator_test\evaluator_test"`). Without either, the API falls back to the
+student-testing trips. Check `GET /health` → `n_eval_trips: 10`. The evaluator trips are used only for inference
+and server-side scoring, never for training, feature selection or tuning. Every request and its accuracy are logged
+in this terminal. Allow port 8000 through the Windows firewall and note the laptop's IP (`ipconfig`).
 
 **Laptop 2 – UI** (only needs `streamlit`, `folium`, `requests`):
 

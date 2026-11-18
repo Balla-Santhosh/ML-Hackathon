@@ -13,9 +13,11 @@ DATA_DIR = Path(os.environ.get("PATHSNAP_DATA", ROOT.parent / "Student folder" /
 TRAIN_DIR = DATA_DIR / "train"
 STUDENT_TEST_DIR = DATA_DIR / "student_test"
 
-# Folder with the 10 reserved evaluation trips served by the API.
-# At demo time point this to the evaluator folder; defaults to student_test for development.
-EVAL_DIR = Path(os.environ.get("PATHSNAP_EVAL_DIR", STUDENT_TEST_DIR))
+# Folder with the 10 reserved evaluation trips served by the API (inference + server-side scoring only;
+# never used for training, feature selection or tuning).
+# Priority: PATHSNAP_EVAL_DIR env var > ../evaluator_test/evaluator_test (if present) > student_test.
+_DEFAULT_EVAL = ROOT.parent / "evaluator_test" / "evaluator_test"
+EVAL_DIR = Path(os.environ.get("PATHSNAP_EVAL_DIR", _DEFAULT_EVAL if _DEFAULT_EVAL.is_dir() else STUDENT_TEST_DIR))
 
 CACHE_DIR = ROOT / "data_cache"          # derived feature tables (git-ignored)
 ARTIFACT_DIR = Path(os.environ.get("PATHSNAP_ARTIFACTS", ROOT / "artifacts"))  # final model + configs

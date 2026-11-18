@@ -1,0 +1,29 @@
+partition             student_test          train
+trips                    10.000000      80.000000
+obs_total             19160.000000  208417.000000
+obs_median             1420.000000    1529.000000
+obs_max                3958.000000   19313.000000
+dur_median_s           1809.500000    1710.001500
+len_km_median            20.935617      24.065719
+nodes_median           6596.500000    9608.000000
+arcs_median           13145.000000   19526.500000
+arcs_max              56027.000000  307392.000000
+trips_with_gap_gt5s       2.000000      45.000000
+weak_comp_median         11.000000      20.000000
+isolated_nodes_total      0.000000       0.000000
+route_contig_min          0.997319       0.981308
+
+Missing/invalid values per file type:
+                        rows  bad_width  non_numeric_or_nan
+partition    file                                         
+student_test arcs    185041          0                   0
+             nodes    90689          0                   0
+             route     3477          0                   0
+             track    19160          0                   0
+train        arcs   3876904          0                   0
+             nodes  1933485          0                   0
+             route    31336          0                   0
+             track   208417          0                   0
+
+Sampling interval share == 1 s: 0.9668  max gap: 153064.0
+saved EDA outputs to D:\Sem5\ML\Hackathon\pathsnap\results\eda D:\Sem5\ML\Hackathon\pathsnap\results\figures D:\Sem5\ML\Hackathon\pathsnap\results\maps
